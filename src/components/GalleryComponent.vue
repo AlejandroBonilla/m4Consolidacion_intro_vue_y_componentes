@@ -10,6 +10,7 @@
       :id="image.id"
       @atras="atras_img"
       @delante="delante_img"
+      @eliminar="eliminar_img"
     >
     </image-component>
 
@@ -99,6 +100,14 @@ export default {
       }
 
       return (new_id);
+    },
+    eliminar_img(e){
+      let id = e.id;
+
+      let index = this.gallery.findIndex((img)=>img.id === id);
+
+      this.gallery.splice(index,1);
+
     }
 
   },

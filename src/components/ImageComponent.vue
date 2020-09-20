@@ -1,8 +1,10 @@
 <template>
   <div>
     <h1> {{title_image}}</h1>
-      <button @click="atras(id)">atras</button>
-      <button @click="delante(id)">delante</button>
+      <button @click="atras(id)">atrás</button>
+      <button @click="delante(id)">delante</button><br>
+      <button @click="eliminar(id)">Eliminar</button>
+
       <hr>
       <img :src='src_image' alt=''>
   </div>
@@ -36,6 +38,9 @@ export default {
     },
     delante:function(id){
       this.$emit("delante",{id:id});
+    },
+    eliminar:function(id){
+      this.$emit("eliminar",{id:id});
     }
   },
   // components: {},
