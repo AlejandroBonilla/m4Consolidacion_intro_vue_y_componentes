@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1> Nuevo Componente</h1>
-    <event-component></event-component>
+    <!-- <h1> Nuevo Componente</h1>
+    <event-component></event-component> -->
     <gallery-component></gallery-component>
   </div>
   

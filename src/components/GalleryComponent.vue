@@ -1,5 +1,6 @@
 <template>
   <div>
+    <form-component @agregar_img="agregar_img"></form-component>
     <image-component 
       v-for="image in gallery" 
       :key="image.id"
@@ -18,7 +19,8 @@
 </template>
 
 <script>
-import ImageComponent from "./ImageComponent.vue"
+import FormImgComponent from "./Form_img.vue";
+import ImageComponent from "./ImageComponent.vue";
 export default {
   name: 'gallery-component',
   // props: {},
@@ -75,10 +77,34 @@ export default {
         this.gallery = [...new_gallery];
 
       }
+    },
+    agregar_img(newImg){
+    
+      let img ={
+        id: this.new_id(),
+        src: newImg.link_photo,
+        title: newImg.type_photo,
+      }
+
+      this.gallery.push(img);
+
+    },
+    new_id(){
+      let new_id = parseInt((Math.random()*100));
+      let result = this.gallery.some((img)=>img.id ===new_id);
+
+      while(result == true){
+        new_id = parseInt((Math.random()*100));
+        result = this.gallery.some((img)=>img.id === new_id);
+      }
+
+      return (new_id);
     }
+
   },
   components: {
-    'image-component':ImageComponent
+    'image-component':ImageComponent,
+    'form-component':FormImgComponent,
   },
 }
 </script>
