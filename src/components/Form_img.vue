@@ -2,7 +2,7 @@
   
     <form action="">
       <label for="">Nombre Foto</label>
-      <input type="text" v-model="type_photo"><br>
+      <input type="text" ref="type_photo" v-model="type_photo"><br>
       <label for="">Link Foto</label>
       <input type="text"  v-model="link_photo" class="link_input"><br>
       <input type="submit" @click.prevent="agregar_imagen" value="Agregar Foto">
@@ -40,6 +40,8 @@ export default {
     cleanInputs(){
       this.type_photo = "";
       this.link_photo = "";
+      this.$refs.type_photo.focus()
+    
     }
   },
   // components: {},
